@@ -1,0 +1,17 @@
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_MIGRATE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = []
+}
+
+model Booking{
+  id Int @id @default(autoincrement())
+  room String
+  timeSlot String
+  free Boolean
+}
